@@ -1,0 +1,52 @@
+(
+    // the token for your bot
+    discord_token: "your bot token here",
+
+    // Docker containers hosting servers for games; one container per map entry
+    servers: {
+        "some-server-name": Docker((
+            // The name of the docker container
+            container_name: "ror2-vanilla",
+            // The connection string for users; can interpolate the public ip of the server using $PUBLIC_IP
+            connect: "cl_password \"some_password\"; connect \"$PUBLIC_IP:27015\";",
+            // the id of the guild (discord server) 
+            guild_ids: [GuildId("your_guild_id")]
+        )),  
+    },
+    vcs: {
+        RoleId(discord_role_id_int): VoiceChatConfig(
+            // list of voice channel ids to track
+            voice_channel_ids: [ChannelId(channel_id_int), ChannelId(channel_id_int)],
+            // text channel to ping role
+            text_channel_id: ChannelId(channel_id_int),
+            // the id of the guild (discord server) 
+            guild_ids: [GuildId("your_guild_id")],
+            // List of start messages. A random one will be pinged to the text channel
+            // when the first person enters one of the voice channels.
+            start_msgs: [
+                "Helldivers be Divin'.", 
+                "Its time to spread DEMOCRACY.", 
+                "Liberation in progress.",
+                "FOR THE GLORY OF SUPER EARTH!!!",
+                "DIVE, DIVE, DIVE!!!",
+                "The Galactic War needs YOU!",
+                "Freedom never sleeps!",
+                "Every bullet fired is a freedom seed planted in the hearts of our enemies.",
+                "REINFORCING!!!",
+                "Dispense peace with the ultimate weaponry.",
+                "Does Democracy fill YOUR sample container?",
+                "The only *good* bug, is a *dead* bug.",
+                "C'mon you apes! You wanna live forever?",
+                "⇧ ⇨ ⇩ ⇩ ⇩",
+            ],
+            // List of end messages. A random one will be pinged to the text channel
+            // when the last person exits all of the voice channels. 
+            // If empty, no exit ping will occur.
+            end_msgs: [
+                "All divers terminated.",
+                "Squad has returned to civilian life."
+            ]
+        )
+    }
+    
+)

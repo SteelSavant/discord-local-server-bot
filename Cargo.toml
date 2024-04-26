@@ -1,0 +1,27 @@
+[package]
+name = "simple-dedicated-server-bot"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dashmap = { version = "5.4.0", features = ["serde"] }
+rand = "0.8.5"
+regex = "1.7.1"
+reqwest = "0.11.15"
+ron = "0.8.0"
+serde = { version = "1.0.158", features = ["derive"] }
+serenity = { version = "0.11.5", features = [ "builder",
+    "cache",
+    "chrono",
+    "client",
+    "gateway",
+    "http",
+    "model",
+    "utils",
+    "rustls_backend",
+    ], default-features = false }
+strum = { version = "0.24.1", features = ["strum_macros", "derive"] }
+tokio = { version = "1.26.0", features = ["rt-multi-thread"] }
+tracing = "0.1.37"
