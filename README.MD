@@ -38,6 +38,10 @@ Under the OAuth2 section, select
 
 Copy the generated url into a browser, and use it to add the bot to your server.
 
+### Getting Discord ids
+
+Right click on the channel/role/etc. in discord and select "Copy X id".
+
 ## Usage
 
 Be sure to compile in release mode (`cargo build --release`); debug is configured to not actually ping message channels.
